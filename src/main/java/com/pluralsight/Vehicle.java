@@ -55,6 +55,12 @@ public class Vehicle {
         this.price = price;
     }
 
+    public void display(){
+        System.out.println("Vehicle info");
+        System.out.println(this.makeModel);
+        System.out.println("Color: " + this.color);
+    }
+
 
 
 
