@@ -8,11 +8,13 @@ public class VehicleInventory {
 
     private static Scanner scanner = new Scanner(System.in);
 
+    static Vehicle[] cars = new Vehicle[20];
+
     public static void main(String[] args) {
 
 
 
-        Vehicle[] cars = new Vehicle[20];
+
 
         Vehicle car1 = new Vehicle(101121, "Ford Explorer", "Red", 45000, 13500);
         cars[0] = car1;
@@ -56,7 +58,7 @@ public class VehicleInventory {
                     findVehiclesByMakeModel(cars);
                     break;
                 case 5:
-                    //addVehicle();
+                    addVehicle();
                     break;
                 case 6:
                     cont = false;
@@ -86,6 +88,24 @@ public class VehicleInventory {
             }
         }
 
+    }
+
+    public static void addVehicle(){
+        System.out.print("Enter Vehicle ID: ");
+        long id = Long.parseLong(scanner.nextLine());
+        System.out.print("Enter make/model: ");
+        String model = scanner.nextLine();
+        System.out.print("Enter vehicle color: ");
+        String color = scanner.nextLine();
+        System.out.print("Enter odometer reading: ");
+        int odometerReading = Integer.parseInt(scanner.nextLine());
+        System.out.print("Enter price: ");
+        double price = Double.parseDouble(scanner.nextLine());
+
+        Vehicle newCar = new Vehicle(id, model, color, odometerReading, price);
+        cars[counter] = newCar;
+
+        counter++;
     }
 
 
