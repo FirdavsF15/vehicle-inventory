@@ -28,7 +28,7 @@ public class VehicleInventory {
         Vehicle car4 = new Vehicle(101124, "Honda Civic", "White", 70000, 7500);
         cars[3] = car4;
 
-        Vehicle car5 = new Vehicle(101125, "Subaru Outback", "Green", 55000, 14500);
+        Vehicle car5 = new Vehicle(101125, "Subaru Outback", "Black", 55000, 14500);
         cars[4] = car5;
 
         Vehicle car6 = new Vehicle(101126, "Jeep Wrangler", "Yellow", 30000, 16000);
@@ -56,6 +56,12 @@ public class VehicleInventory {
                     break;
                 case 2:
                     findVehiclesByMakeModel(cars);
+                    break;
+                case 3:
+                    findVehiclesByPrice(cars);
+                    break;
+                case 4:
+                    findVehiclesByColor(cars);
                     break;
                 case 5:
                     addVehicle();
@@ -85,6 +91,36 @@ public class VehicleInventory {
             if(cars[i].getMakeModel().equals(model)){
                 System.out.println("\nCar found");
                 System.out.println(cars[i].getVehicleId() + " " + cars[i].getMakeModel() + " $" + cars[i].getPrice() + "\n");
+            }
+        }
+
+    }
+
+    public static void findVehiclesByColor(Vehicle[] cars){
+        System.out.println("What color are you looking for? ");
+        String color = scanner.nextLine();
+
+        for (int i = 0; i < counter; i++) {
+            if(cars[i].getColor().equals(color)){
+                System.out.println("\nCar found");
+                System.out.println(cars[i].getVehicleId() + " " + cars[i].getColor() + " " + cars[i].getMakeModel() + " $" + cars[i].getPrice() + "\n");
+
+            }
+
+        }
+
+    }
+
+    public static void findVehiclesByPrice(Vehicle[] cars){
+        System.out.println("What price are you looking for? ");
+        double price = Double.parseDouble(scanner.nextLine());
+
+        for (int i = 0; i < counter; i++) {
+            if(cars[i].getPrice() == price){
+                System.out.println("\nCar found");
+                System.out.println(cars[i].getVehicleId() + " " + cars[i].getMakeModel() + " $" + cars[i].getPrice() + "\n");
+            }else{
+                System.out.println("No cars found with that price");
             }
         }
 
