@@ -6,9 +6,11 @@ public class VehicleInventory {
 
     static int counter = 0;
 
+    private static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
+
 
         Vehicle[] cars = new Vehicle[20];
 
@@ -51,13 +53,14 @@ public class VehicleInventory {
                     System.out.println();
                     break;
                 case 2:
-                    //findVehiclesByMakeModel();
+                    findVehiclesByMakeModel(cars);
                     break;
                 case 5:
                     //addVehicle();
                     break;
                 case 6:
                     cont = false;
+                    System.out.println("\nHave a good day!");
                     break;
             }
 
@@ -73,6 +76,15 @@ public class VehicleInventory {
     }
 
     public static void findVehiclesByMakeModel(Vehicle[] cars){
+        System.out.println("What make/model are you looking for? ");
+        String model = scanner.nextLine();
+
+        for (int i = 0; i < counter; i++) {
+            if(cars[i].getMakeModel().equals(model)){
+                System.out.println("\nCar found");
+                System.out.println(cars[i].getVehicleId() + " " + cars[i].getMakeModel() + " $" + cars[i].getPrice() + "\n");
+            }
+        }
 
     }
 
